@@ -1,22 +1,21 @@
-def get_text_input(message):
+def get_string(prompt_msg):
     while True:
-        text = input(message).strip()
-        if text != "":
-            return text
-        print("공백은 입력할 수 없어요. 다시 입력해주세요.")
+        value = input(prompt_msg).strip()
+        if value:
+            return value
 
+        print("입력값은 공백일 수 없습니다. 다시 입력해주세요.")
 
-def get_number_input(message, error_message="숫자만 입력해주세요."):
-    while True:
-        try:
-            return int(input(message))
-        except ValueError:
-            print(error_message)
-
-
-def get_decimal_input(message, error_message="숫자(소수 포함)만 입력해주세요."):
+def get_valid_integer(prompt_msg, error_msg = "숫자만 입력해주세요."):
     while True:
         try:
-            return float(input(message))
+            return int(input(prompt_msg))
         except ValueError:
-            print(error_message)
+            print(error_msg)
+
+def get_valid_float(prompt_msg, error_msg = "숫자(실수)만 입력해주세요."):
+    while True:
+        try:
+            return float(input(prompt_msg))
+        except ValueError:
+            print(error_msg)
